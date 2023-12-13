@@ -26,8 +26,17 @@ fetch(csvUrl)
                 uniqueValues.push(value);
             }
         }
+        //search for more than one count of elements
+        let counter = lastElementArr.reduce((acc, val) => {
+            acc[val] = (acc[val] || 0) + 1;
+            return acc;
+        }, {});
+
+        let countedOnce = Object.keys(counter).filter(key => counter[key] === 1);
+
         console.log("splitelementarr", lastElementArr);
         console.log("uniquevalues", uniqueValues);
+        console.log("countedonce", countedOnce);
     })
 
 
