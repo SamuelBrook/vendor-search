@@ -9,21 +9,24 @@ fetch(csvUrl)
     })
     .then(csvData => {
         const rows = csvData.split('\n'); // split by newline to get rows
+        let lastElementArr = []
         let repeatedValues = [];
         let uniqueValues = [];
         let seenElements = new Set();
         for (let i = 0; i < rows.length; i++){
             let row = rows[i];
             let lastElement = row[row.length - 1];
-            let value = lastElement;
+            lastElementArr.push(lastElement);
+
+            /*let value = lastElement;
             if (seenElements.has(value)) {
                 repeatedValues.push(value);
             } else {
                 seenElements.add(value);
                 uniqueValues.push(value);
-            }
+            }*/
         }
-        console.log("unique values", uniqueValues);
+        console.log("unique values", lastElementArr);
     })
 
 
