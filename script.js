@@ -15,8 +15,9 @@ fetch(csvUrl)
         let seenElements = new Set();
         for (let i = 0; i < rows.length; i++){
             let row = rows[i];
-            let lastElement = row[row.length - 1];
-            lastElementArr.push(rows);
+            let splitRow = row.split(',');
+            let lastElement = splitRow[row.length - 1];
+            lastElementArr.push(lastElement);
 
             /*let value = lastElement;
             if (seenElements.has(value)) {
@@ -25,8 +26,11 @@ fetch(csvUrl)
                 seenElements.add(value);
                 uniqueValues.push(value);
             }*/
+            if (i == 0) {
+                console.log(row);
+            }
         }
-        console.log("rows", rows);
+        console.log("splitelementarr", lastElementArr);
     })
 
 
