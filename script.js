@@ -16,7 +16,7 @@ fetch(csvUrl)
         for (let i = 0; i < rows.length; i++){
             let row = rows[i];
             let lastElement = row[row.length - 1];
-            lastElementArr.push(lastElement);
+            lastElementArr.push(rows);
 
             /*let value = lastElement;
             if (seenElements.has(value)) {
@@ -26,7 +26,7 @@ fetch(csvUrl)
                 uniqueValues.push(value);
             }*/
         }
-        console.log("last ele", lastElementArr);
+        console.log("rows", rows);
     })
 
 
