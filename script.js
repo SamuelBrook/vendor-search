@@ -1,7 +1,6 @@
 const csvUrl = './search-results.csv';
 const columnToUpdate = 'Values';
-const fs = require('fs');
-const Papa = require('papaparse');
+
 
 
 fetch(csvUrl)
