@@ -1,4 +1,8 @@
 const csvUrl = './search-results.csv';
+const columnToUpdate = 'Values';
+const fs = require('fs');
+const Papa = require('papaparse');
+
 
 fetch(csvUrl)
     .then(response => {
@@ -18,13 +22,6 @@ fetch(csvUrl)
             let splitRow = row.split(',');
             let lastElement = splitRow[splitRow.length - 1];
             lastElementArr.push(lastElement);
-            let value = lastElement;
-            if (seenElements.has(value)) {
-                repeatedValues.push(value);
-            } else {
-                seenElements.add(value);
-                uniqueValues.push(value);
-            }
         }
         //search for more than one count of elements
         let counter = lastElementArr.reduce((acc, val) => {
@@ -33,6 +30,17 @@ fetch(csvUrl)
         }, {});
 
         let countedOnce = Object.keys(counter).filter(key => counter[key] === 1);
+
+        
+        let csvDataRead= fs.readFileSync(csvFilePath, 'utf8');
+        let parsedData = Papa.parse(csvDataRead, {header: true});
+
+        countedOnce.forEach(count => {
+            parsedData.data.push({[columnToUpdate]: uniqueValues.toString()});
+        });
+
+        let updatedCsv = Papa.unparse(parsedData);
+        fs.writeFileSync(csvFilePath, updatedCsv,'utf8');
 
         console.log("splitelementarr", lastElementArr);
         console.log("uniquevalues", uniqueValues);
