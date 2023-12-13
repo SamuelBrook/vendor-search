@@ -26,7 +26,7 @@ fetch(csvUrl)
                 uniqueValues.push(value);
             }*/
         }
-        console.log("unique values", lastElementArr);
+        console.log("last ele", lastElementArr);
     })
 
 
