@@ -9,7 +9,13 @@ fetch(csvUrl)
     })
     .then(csvData => {
         const rows = csvData.split('\n'); // split by newline to get rows
-        console.log(rows);
+        let bkfArray = [];
+        for (let i = 0; i < rows.length; i++){
+            let row = rows[i];
+            let lastElement = row[row.length - 1];
+            bkfArray.push(lastElement);
+        }
+        console.log(bkfArray);
     })
 
 
