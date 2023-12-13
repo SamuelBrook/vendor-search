@@ -29,7 +29,7 @@ fetch(csvUrl)
 
         console.log("splitelementarr", lastElementArr);
         console.log("uniquevalues", uniqueValues);
-        console.log("countedonce", countedOnce);
+        console.log("countedoncecheck", countedOnce);
 
     })
 
