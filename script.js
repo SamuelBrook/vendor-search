@@ -16,7 +16,7 @@ fetch(csvUrl)
         for (let i = 0; i < rows.length; i++){
             let row = rows[i];
             let splitRow = row.split(',');
-            let lastElement = splitRow[row.length - 1];
+            let lastElement = splitRow[splitRow.length - 1];
             lastElementArr.push(lastElement);
 
             /*let value = lastElement;
