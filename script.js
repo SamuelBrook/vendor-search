@@ -18,19 +18,16 @@ fetch(csvUrl)
             let splitRow = row.split(',');
             let lastElement = splitRow[splitRow.length - 1];
             lastElementArr.push(lastElement);
-
-            /*let value = lastElement;
+            let value = lastElement;
             if (seenElements.has(value)) {
                 repeatedValues.push(value);
             } else {
                 seenElements.add(value);
                 uniqueValues.push(value);
-            }*/
-            if (i == 0) {
-                console.log(row);
             }
         }
         console.log("splitelementarr", lastElementArr);
+        console.log("uniquevalues", uniqueValues);
     })
 
 
