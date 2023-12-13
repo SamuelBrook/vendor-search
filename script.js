@@ -20,7 +20,6 @@ fetch(csvUrl)
             lastElementArr.push(lastElement);
         }
         //search for more than one count of elements
-        //search for more than one count of elements
         let counter = lastElementArr.reduce((acc, val) => {
             acc[val] = (acc[val] || 0) + 1;
             return acc;
