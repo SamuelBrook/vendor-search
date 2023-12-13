@@ -1,5 +1,4 @@
 const csvUrl = './search-results.csv';
-const columnToUpdate = 'Values';
 
 fetch(csvUrl)
     .then(response => {
