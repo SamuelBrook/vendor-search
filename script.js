@@ -10,23 +10,21 @@ fetch(csvUrl)
     .then(csvData => {
         const rows = csvData.split('\n'); // split by newline to get rows
         let lastElementArr = []
-        let uniqueValues = [];
-        for (let i = 0; i < rows.length; i++){
+        for (let i = 0; i < rows.length; i++){ // loop through the rows, split by CSV column and save the last elements (the product codes) to an array
             let row = rows[i];
             let splitRow = row.split(',');
             let lastElement = splitRow[splitRow.length - 1];
             lastElementArr.push(lastElement);
-        }
-        //search for more than one count of elements
+        } 
+        // return object with unique elements as keys and counts as values
         let counter = lastElementArr.reduce((acc, val) => {
             acc[val] = (acc[val] || 0) + 1;
             return acc;
         }, {});
-
+        // extract an array of the keys (unique elements) from the counter object
         let countedOnce = Object.keys(counter).filter(key => counter[key] === 1);
 
         console.log("splitelementarr", lastElementArr);
-        console.log("uniquevalues", uniqueValues);
         console.log("countedoncecheck", countedOnce);
 
     })
