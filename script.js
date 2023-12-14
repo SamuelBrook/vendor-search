@@ -31,5 +31,5 @@ fetch(csvUrl)
 
 
 const output = document.getElementById('output');
-output.innerHTML = "hello world";
+output.innerHTML = "View Console to see unique vendor output";
 
