@@ -10,9 +10,7 @@ fetch(csvUrl)
     .then(csvData => {
         const rows = csvData.split('\n'); // split by newline to get rows
         let lastElementArr = []
-        let repeatedValues = [];
         let uniqueValues = [];
-        let seenElements = new Set();
         for (let i = 0; i < rows.length; i++){
             let row = rows[i];
             let splitRow = row.split(',');
